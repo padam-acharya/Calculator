@@ -66,6 +66,8 @@ function reducer(state, { type, payload }) {
       };
 
     case ACTIONS.EVALUATE:
+
+
       if (
         state.prevOperand === "" ||
         state.currentOperand === "" ||
@@ -118,7 +120,11 @@ function evaluate({ currentOperand, prevOperand, operator }) {
     case "x":
       return prevOperand * currentOperand;
     case "/":
-      return prevOperand / currentOperand;
+      let result = prevOperand / currentOperand
+      if (!isNaN(result)) {
+        return prevOperand / currentOperand;
+      }
+      return "UNDEFINED"
     case "^":
       return Math.pow(prevOperand, currentOperand);
     default:

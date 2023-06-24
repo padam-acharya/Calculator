@@ -8,6 +8,7 @@ export default function Digit({ number, dispatch }) {
           type: ACTIONS.ADD_DIGIT,
           payload: { number }
         })
+
       }
     >
       {number}
